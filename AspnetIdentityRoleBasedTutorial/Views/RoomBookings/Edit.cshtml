@@ -1,0 +1,556 @@
+﻿@* @model AspnetIdentityRoleBasedTutorial.Models.BookRoomModel.RoomBooking
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<style>
+    /* Add your custom CSS styles here */
+    #city-container {
+        width: 200px;
+    }
+
+    #cityInput {
+        width: 327%; /* Adjust width to match the previous style */
+        padding: 10px;
+    }
+
+    #citySelect {
+        width: 20%;
+        max-height: 100px;
+        overflow-y: auto;
+        position: absolute;
+        display: none;
+    }
+
+        #citySelect.show {
+            display: block;
+        }
+
+        #citySelect option {
+            padding: 8px;
+        }
+</style>
+
+<h1>Edit</h1>
+
+<h4>RoomBooking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Province"></label>
+                <select asp-for="Province" asp-items="ViewBag.Province" class="form-control">
+                    <option value="Eastern Cape">Eastern Cape</option>
+                    <option value="Free State">Free State</option>
+                    <option value="Gauteng">Gauteng</option>
+                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                    <option value="Limpopo">Limpopo</option>
+                    <option value="Mpumalanga">Mpumalanga</option>
+                    <option value="Northern Cape">Northern Cape</option>
+                    <option value="North West">North West</option>
+                    <option value="Western Cape">Western Cape</option>
+                    <option value="" disabled selected>--choose--</option>
+                </select>
+                <span asp-validation-for="Province" class="text-danger"></span>
+            </div>
+            <div id="city-container">
+                <input type="text" id="cityInput" placeholder="enter city...">
+                <select id="citySelect" size="5">
+                    <!-- Add your cities here as <option> elements -->
+                    <option>Alice</option>
+                    <option>Butterworth</option>
+                    <option>East London</option>
+                    <option>Graaff-Reinet</option>
+                    <option>Grahamstown</option>
+                    <option>King William’s Town</option>
+                    <option>Mthatha</option>
+                    <option>Port Elizabeth</option>
+                    <option>Queenstown</option>
+                    <option>Uitenhage</option>
+                    <option>Zwelitsha</option>
+                    <option>Bethlehem</option>
+                    <option>Bloemfontein</option>
+                    <option>Jagersfontein</option>
+                    <option>Kroonstad</option>
+                    <option>Odendaalsrus</option>
+                    <option>Parys</option>
+                    <option>Phuthaditjhaba</option>
+                    <option>Sasolburg</option>
+                    <option>Virginia</option>
+                    <option>Welkom</option>
+                    <option>Benoni</option>
+                    <option>Boksburg</option>
+                    <option>Brakpan</option>
+                    <option>Carletonville</option>
+                    <option>Germiston</option>
+                    <option>Johannesburg</option>
+                    <option>Krugersdorp</option>
+                    <option>Pretoria</option>
+                    <option>Randburg</option>
+                    <option>Randfontein</option>
+                    <option>Roodepoort</option>
+                    <option>Soweto</option>
+                    <option>Springs</option>
+                    <option>Vanderbijlpark</option>
+                    <option>Vereeniging</option>
+                    <option>Durban</option>
+                    <option>Empangeni</option>
+                    <option>Ladysmith</option>
+                    <option>Newcastle</option>
+                    <option>Pietermaritzburg</option>
+                    <option>Pinetown</option>
+                    <option>Ulundi</option>
+                    <option>Umlazi</option>
+                    <option>Giyani</option>
+                    <option>Lebowakgomo</option>
+                    <option>Musina</option>
+                    <option>Phalaborwa</option>
+                    <option>Polokwane</option>
+                    <option>Seshego</option>
+                    <option>Sibasa</option>
+                    <option>Thabazimbi</option>
+                    <option>Emalahleni</option>
+                    <option>Nelspruit</option>
+                    <option>Secunda</option>
+                    <option>Klerksdorp</option>
+                    <option>Mahikeng</option>
+                    <option>Mmabatho</option>
+                    <option>Potchefstroom</option>
+                    <option>Rustenburg</option>
+                    <option>Kimberley</option>
+                    <option>Kuruman</option>
+                    <option>Port Nolloth</option>
+                    <option>Bellville</option>
+                    <option>Cape Town</option>
+                    <option>Constantia</option>
+                    <option>George</option>
+                    <option>Hopefield</option>
+                    <option>Oudtshoorn</option>
+                    <option>Paarl</option>
+                    <option>Simon’s Town</option>
+                    <option>Stellenbosch</option>
+                    <option>Swellendam</option>
+                    <option>Worcester</option>
+
+                    <!-- Add more cities here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="City">Selected City:</label>
+                <input type="text" id="City" name="City" class="form-control" readonly>
+            </div>
+
+            <label for="RoomType">Select Room Type:</label>
+            <select id="RoomType" name="RoomType" class="form-control">
+                <option value="double">Double</option>
+                <option value="single">Single</option>
+                <option value="triple">Triple</option>
+            </select>
+
+            <div class="form-group">
+                <label asp-for="BlockName">Block Name</label>
+                <select asp-for="BlockName" asp-items="ViewBag.Block" class="form-control">
+                    <option value="Block J">Block J</option>
+                    <option value="Block E">Block E</option>
+                    <option value="Block C">Block C</option>
+                    <option value="" disabled selected>--choose--</option>
+                </select>
+                <span asp-validation-for="BlockName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CheckInDate" class="control-label"></label>
+                <input asp-for="CheckInDate" type="date" class="form-control" />
+                <span asp-validation-for="CheckInDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CheckOutDate" class="control-label"></label>
+                <input asp-for="CheckOutDate" type="date" class="form-control" />
+                <span asp-validation-for="CheckOutDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    // JavaScript to handle the dropdown functionality
+    const cityInput = document.getElementById("cityInput");
+    const citySelect = document.getElementById("citySelect");
+    const selectedCityInput = document.getElementById("City");
+
+    cityInput.addEventListener("input", function () {
+        const filter = cityInput.value.toUpperCase();
+        const options = citySelect.options;
+
+        for (let i = 0; i < options.length; i++) {
+            const option = options[i];
+            if (option.textContent.toUpperCase().indexOf(filter) > -1) {
+                option.style.display = "";
+            } else {
+                option.style.display = "none";
+            }
+        }
+
+        citySelect.classList.add("show");
+    });
+
+    citySelect.addEventListener("change", function () {
+        const selectedCity = citySelect.value;
+        selectedCityInput.value = selectedCity;
+        cityInput.value = selectedCity; // Populate the input with the selected city
+        citySelect.classList.remove("show");
+    });
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+ *@
+
+@model AspnetIdentityRoleBasedTutorial.Models.BookRoomModel.RoomBooking
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<style>
+    /* Add your custom CSS styles here */
+
+    #city-container {
+        width: 200px;
+    }
+
+    #cityInput {
+        width: 327%;
+        padding: 10px;
+    }
+
+    #citySelect {
+        width: 20%;
+        max-height: 100px;
+        overflow-y: auto;
+        position: absolute;
+        display: none;
+    }
+
+        #citySelect.show {
+            display: block;
+        }
+
+        #citySelect option {
+            padding: 8px;
+        }
+
+    .container {
+        margin: 0 auto;
+        width: 50%;
+        padding: 20px;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        background-color: #fff;
+    }
+
+    .navbar {
+        background-color: #89CFF0;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #89CFF0;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+        }
+
+    .form-control {
+        width: 100%; /* Make the fields wider */
+        padding: 10px;
+        border: 1px solid #40E0D0;
+        border-radius: 4px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .horizontal-fields {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .horizontal-fields .form-group {
+            width: 48%; /* Adjust the width as needed */
+        }
+</style>
+
+<div class="container">
+    <div class="navbar">
+        <h3>Reserve Room</h3>
+    </div>
+
+    <div class="card">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group horizontal-fields">
+                <div class="form-group">
+                    <label class="control-label">First Name</label>
+                    <input asp-for="FirstName" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Last Name</label>
+                    <input asp-for="LastName" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Province</label>
+                <select asp-for="Province" asp-items="ViewBag.Province" class="form-control">
+                    <option value="Eastern Cape">Eastern Cape</option>
+                    <option value="Free State">Free State</option>
+                    <option value="Gauteng">Gauteng</option>
+                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                    <option value="Limpopo">Limpopo</option>
+                    <option value="Mpumalanga">Mpumalanga</option>
+                    <option value="Northern Cape">Northern Cape</option>
+                    <option value="North West">North West</option>
+                    <option value="Western Cape">Western Cape</option>
+                    <option value="" disabled selected>--choose--</option>
+
+                </select>
+            </div>
+            <div id="city-container">
+
+                <input type="text" id="cityInput" placeholder="search city...">
+                <select id="citySelect" size="5" class="form-control" required>
+                    <!-- Add your cities here as <option> elements -->
+                    <option>Alice</option>
+                    <option>Butterworth</option>
+                    <option>East London</option>
+                    <option>Graaff-Reinet</option>
+                    <option>Grahamstown</option>
+                    <option>King William’s Town</option>
+                    <option>Mthatha</option>
+                    <option>Port Elizabeth</option>
+                    <option>Queenstown</option>
+                    <option>Uitenhage</option>
+                    <option>Zwelitsha</option>
+                    <option>Bethlehem</option>
+                    <option>Bloemfontein</option>
+                    <option>Jagersfontein</option>
+                    <option>Kroonstad</option>
+                    <option>Odendaalsrus</option>
+                    <option>Parys</option>
+                    <option>Phuthaditjhaba</option>
+                    <option>Sasolburg</option>
+                    <option>Virginia</option>
+                    <option>Welkom</option>
+                    <option>Benoni</option>
+                    <option>Boksburg</option>
+                    <option>Brakpan</option>
+                    <option>Carletonville</option>
+                    <option>Germiston</option>
+                    <option>Johannesburg</option>
+                    <option>Krugersdorp</option>
+                    <option>Pretoria</option>
+                    <option>Randburg</option>
+                    <option>Randfontein</option>
+                    <option>Roodepoort</option>
+                    <option>Soweto</option>
+                    <option>Springs</option>
+                    <option>Vanderbijlpark</option>
+                    <option>Vereeniging</option>
+                    <option>Durban</option>
+                    <option>Empangeni</option>
+                    <option>Ladysmith</option>
+                    <option>Newcastle</option>
+                    <option>Pietermaritzburg</option>
+                    <option>Pinetown</option>
+                    <option>Ulundi</option>
+                    <option>Umlazi</option>
+                    <option>Giyani</option>
+                    <option>Lebowakgomo</option>
+                    <option>Musina</option>
+                    <option>Phalaborwa</option>
+                    <option>Polokwane</option>
+                    <option>Seshego</option>
+                    <option>Sibasa</option>
+                    <option>Thabazimbi</option>
+                    <option>Emalahleni</option>
+                    <option>Nelspruit</option>
+                    <option>Secunda</option>
+                    <option>Klerksdorp</option>
+                    <option>Mahikeng</option>
+                    <option>Mmabatho</option>
+                    <option>Potchefstroom</option>
+                    <option>Rustenburg</option>
+                    <option>Kimberley</option>
+                    <option>Kuruman</option>
+                    <option>Port Nolloth</option>
+                    <option>Bellville</option>
+                    <option>Cape Town</option>
+                    <option>Constantia</option>
+                    <option>George</option>
+                    <option>Hopefield</option>
+                    <option>Oudtshoorn</option>
+                    <option>Paarl</option>
+                    <option>Simon’s Town</option>
+                    <option>Stellenbosch</option>
+                    <option>Swellendam</option>
+                    <option>Worcester</option>
+
+                    <!-- Add more cities here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="City">Selected City:</label>
+                <input type="text" id="City" name="City" class="form-control" readonly>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="RoomType">Select Room Type:</label>
+                <select id="RoomType" name="RoomType" class="form-control" required>
+                    <option value="double">Double</option>
+                    <option value="single">Single</option>
+                    <option value="triple">Triple</option>
+                    <option value="" disabled selected>--choose--</option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BlockName">Block Name</label>
+                <select asp-for="BlockName" asp-items="ViewBag.Block" class="form-control" required>
+                    <option value="Block J">Block J</option>
+                    <option value="Block E">Block E</option>
+                    <option value="Block C">Block C</option>
+                    <option value="" disabled selected>--choose--</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Check-In Date</label>
+                <input asp-for="CheckInDate" type="date" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Check-Out Date</label>
+                <input asp-for="CheckOutDate" type="date" class="form-control" required />
+            </div>
+
+            <input type="submit" value="Save" class="btn btn-primary" />
+
+
+        </form>
+    </div>
+
+    <div class="footer">
+        &copy; 2023 BregadeTech
+    </div>
+</div>
+
+
+<script>
+    // JavaScript to handle the dropdown functionality
+    const cityInput = document.getElementById("cityInput");
+    const citySelect = document.getElementById("citySelect");
+    const selectedCityInput = document.getElementById("City");
+
+    cityInput.addEventListener("input", function () {
+        const filter = cityInput.value.toUpperCase();
+        const options = citySelect.options;
+
+        for (let i = 0; i < options.length; i++) {
+            const option = options[i];
+            if (option.textContent.toUpperCase().indexOf(filter) > -1) {
+                option.style.display = "";
+            } else {
+                option.style.display = "none";
+            }
+        }
+
+        citySelect.classList.add("show");
+    });
+
+    citySelect.addEventListener("change", function () {
+        const selectedCity = citySelect.value;
+        selectedCityInput.value = selectedCity;
+        cityInput.value = selectedCity; // Populate the input with the selected city
+        citySelect.classList.remove("show");
+    });
+</script>
+<body style="background-color: lightgray">
+</body>

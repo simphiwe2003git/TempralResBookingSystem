@@ -1,0 +1,81 @@
+﻿@model AspnetIdentityRoleBasedTutorial.Models.Donate.Donation
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <!-- Offset by 4 columns to center -->
+
+                <form asp-action="Create" class="my-donation-form">
+                    <!-- Add a unique class for the form -->
+
+                    <h3>Make Donation</h3>
+
+                    <div class="form-group">
+                        <label asp-for="ItemName" class="control-label">Item Name</label>
+                        <input asp-for="ItemName" class="form-control" />
+                        <span asp-validation-for="ItemName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ItemValue" class="control-label"></label>
+                        <input asp-for="ItemValue" class="form-control" />
+                        <span asp-validation-for="ItemValue" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmailAddress" class="control-label"></label>
+                        <input asp-for="EmailAddress" class="form-control" />
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address" class="control-label"></label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DonationDate" class="control-label"></label>
+                        <input asp-for="DonationDate" class="form-control" />
+                        <span asp-validation-for="DonationDate" class="text-danger"></span>
+                    </div>
+                    <!-- Other form fields... -->
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-brown text-blue p-2 text-center">
+        <p>&copy; 2023 Bregade Tech</p>
+    </footer>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    /* Style only the donation form */
+    .my-donation-form {
+        background-color: lightcyan;
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>
+<body style="background-color: lightgray">
+</body>

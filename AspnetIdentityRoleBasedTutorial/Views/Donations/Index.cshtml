@@ -1,0 +1,113 @@
+﻿@model IEnumerable<AspnetIdentityRoleBasedTutorial.Models.Donate.Donation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    h2 {
+        text-align: center;
+        font-style: italic;
+        color: darkcyan
+    }
+    .table thead th {
+        color: brown;
+        font-size: 18px; /* Adjust the font size as needed */
+        border-top: 2px solid brown; /* Dark cyan top border of headers */
+    }
+
+    /* Dark cyan horizontal lines for all rows */
+    .table-bordered tbody tr {
+        border-bottom: 2px solid brown; /* Dark cyan horizontal lines */
+    }
+
+    /* Dark cyan vertical lines */
+    .table-bordered th,
+    .table-bordered td {
+        border-right: 2px solid brown; /* Dark cyan vertical lines */
+    }
+
+        /* Dark cyan left border of the first column */
+        .table-bordered th:first-child,
+        .table-bordered td:first-child {
+            border-left: 2px solid brown; /* Dark cyan left border of the first column */
+        }
+
+    /* Style for action links as buttons */
+    .action-button {
+        padding: 5px 10px;
+        margin-right: 5px;
+    }
+
+    /* Style for the "Create New" link as a button */
+    .create-button {
+        background-color: cyan;
+        color: white;
+        padding: 5px 10px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+</style>
+
+<h2>--Donations--</h2>
+
+<p>
+    <a asp-action="Create" class="create-button">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonationDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonationDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success action-button">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary action-button">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger action-button">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<body style="background-color: lightgray">
+</body>

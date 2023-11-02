@@ -1,0 +1,428 @@
+﻿@* @* 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Contact Us Page</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/demo.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .contact-parent {
+            background: #fff;
+            display: flex;
+            margin: 80px 0;
+        }
+
+        .contact-child {
+            display: flex;
+            flex: 1;
+            box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.75);
+        }
+
+        .child1 {
+            background-image: url('../../image/oip 67373.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+            .child1 p {
+                padding-left: 20%;
+                font-size: 20px;
+                text-shadow: 0px 0px 2px #000;
+            }
+
+                .child1 p span {
+                    font-size: 16px;
+                    color: #000;
+                }
+
+        .child2 {
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .inside-contact {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+            .inside-contact h2 {
+                text-transform: uppercase;
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            .inside-contact h3 {
+                text-align: center;
+                font-size: 16px;
+                color: #0085e2;
+            }
+
+            .inside-contact input, .inside-contact textarea {
+                width: 100%;
+                background-color: #eee;
+                border: 1px solid rgba(0,0,0,0.48);
+                padding: 5px 10px;
+                margin-bottom: 20px;
+            }
+
+                .inside-contact input[type=submit] {
+                    background-color: #000;
+                    color: #fff;
+                    transition: 0.2s;
+                    border: 2px solid #000;
+                    margin: 30px 0;
+                }
+
+                    .inside-contact input[type=submit]:hover {
+                        background-color: #fff;
+                        color: #000;
+                        transition: 0.2s;
+                    }
+
+        @@media screen and (max-width:99px) {
+            .contact-parent {
+                display: block;
+                width: 10%;
+            }
+
+            .child1 {
+                display: none;
+            }
+
+            .child2 {
+                background-image: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url("https://cdn.pixabay.com/photo/2019/06/28/00/17/architecture-4303279_1280.jpg");
+                background-size: cover;
+            }
+
+            .inside-contact input, .inside-contact textarea {
+                background-color: #fff;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="ScriptTop">
+        <div class="rt-container">
+            <div class="col-rt-4" id="float-right">
+
+                <!-- Ad Here -->
+
+            </div>
+
+        </div>
+    </div>
+
+    <header class="ScriptHeader">
+        <div class="rt-container">
+            <div class="col-rt-12">
+                <div class="rt-heading">
+                </div>
+            </div>
+        </div>
+    </header>
+    <center>
+        <section>
+            <div class="rt-container">
+                <div class="col-rt-12">
+                    <div class="Scriptcontent">
+
+                        <div>
+                            <div class="container">
+                                <div class="contact-parent">
+                                    <div class="contact-child child1">
+                                        <p>
+                                            <i class="fas fa-map-marker-alt"></i> Address <br />
+                                            <span>
+                                                13 FJ Sithole Road Pietermaritzburg
+                                                <br />
+                                                South Africa
+                                            </span>
+                                        </p>
+
+                                        <p>
+                                            <i class="fas fa-phone-alt"></i> Let's Talk <br />
+                                            <span> 080001111 </span>
+                                        </p>
+
+                                        <p>
+                                            <i class=" far fa-envelope"></i> General Support <br />
+                                            <span>bregadetech.co.za</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="contact-child child2">
+                                        <div class="inside-contact">
+                                            <h2>Contact Us</h2>
+                                            <form action="https://formsubmit.co/simphiweasanda64@gmail.com" method="POST">
+
+                                                <p>Name *</p>
+                                                <input type="text" name="Name" required>
+
+                                                <p>Email *</p>
+                                                <input type="email" name="Email" required>
+
+                                                <p>Phone *</p>
+
+                                                <input type="text" name="Phone" required>
+
+                                                <p>Subject *</p>
+
+                                                <input type="text" name="Subject" required>
+
+                                                <p>Comment *</p>
+                                                <textarea name="Comment" placeholder="Comment" required></textarea>
+
+                                                <input type="submit" id="btn_send" value="SEND">
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </center>
+    <!-- Analytics -->
+    <div>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55488.30351081679!2d30.32423915820312!3d-29.632192299999986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6bda8c1226de5%3A0x324976f9cc9e1065!2sLrm%20Dental%20Care!5e0!3m2!1sen!2sza!4v1692484504996!5m2!1sen!2sza"
+                width="1150"
+                height="300"
+                frameborder="0"
+                style="border:0;"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0">
+        </iframe>
+    </div>
+</body>
+</html>
+ *@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Contact Us Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/demo.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-parent {
+            display: flex;
+            background: #f4f4f4;
+            padding: 80px 0;
+        }
+
+        .contact-child {
+            flex: 1;
+            box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        .child1 {
+            background-image: url('../../image/oip 67373.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            padding: 40px;
+            color: #fff;
+        }
+
+        .child1 h2 {
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .child1 p {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .child2 {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("https://www.pexels.com/photo/red-concrete-brick-259915/");
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inside-contact {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.2);
+        }
+
+        .inside-contact h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .inside-contact p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .inside-contact input,
+        .inside-contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid green; /* Green border */
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .inside-contact input[type="submit"] {
+            background-color: deepskyblue;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .inside-contact input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+
+        
+            .child1 {
+                display: none;
+            }
+
+        h2 {
+            background-color: deepskyblue;
+            padding: 10px; /* Add padding for better appearance */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="ScriptTop">
+        <div class="rt-container">
+            <div class="col-rt-4" id="float-right">
+                <!-- Ad Here -->
+            </div>
+        </div>
+    </div>
+
+    <header class="ScriptHeader">
+        <div class="rt-container">
+            <div class="col-rt-12">
+                <div class="rt-heading">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="rt-container">
+            <div class="col-rt-12">
+                <div class="Scriptcontent">
+                    <div class="container">
+                        <div class="contact-parent">
+                            <div class="contact-child child2">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.513766738338!2d30.346855375442015!3d-29.646862375126254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6bd31af70e01b%3A0x676303018ae12b5f!2sDurban%20University%20of%20Technology%20Indumiso%20Campus!5e0!3m2!1sen!2sza!4v1696429047665!5m2!1sen!2sza" width="600" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                 
+                                </iframe>
+                            </div>
+
+                            <div class="contact-child child1">
+                                <h2>Contact Information</h2>
+                                <p>
+                                    <i class="fas fa-map-marker-alt"></i> Address <br />
+                                    <span>
+                                        13 FJ Sithole Road Pietermaritzburg
+                                        <br />
+                                        South Africa
+                                    </span>
+                                </p>
+
+                                <p>
+                                    <i class="fas fa-phone-alt"></i> Let's Talk <br />
+                                    <span>080001111</span>
+                                </p>
+
+                                <p>
+                                    <i class="far fa-envelope"></i> General Support <br />
+                                    <span>bregadetech.co.za</span>
+                                </p>
+                            </div>
+
+                            <div class="contact-child child2">
+                                <div class="inside-contact">
+                                    <h2>Contact Us</h2>
+                                    <form action="https://formsubmit.co/simphiweasanda64@gmail.com" method="POST">
+                                        <p>Name *</p>
+                                        <input type="text" name="Name" required>
+
+                                        <p>Email *</p>
+                                        <input type="email" name="Email" required>
+
+                                        <p>Phone *</p>
+                                        <input type="text" name="Phone" required>
+
+                                        <p>Subject *</p>
+                                        <input type="text" name="Subject" required>
+
+                                        <p>Comment *</p>
+                                        <textarea name="Comment" placeholder="Comment" required></textarea>
+
+                                        <input type="submit" id="btn_send" value="SEND">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        
+                    </div>
+                    </section>
+                    </body>
+
+                    </html>
+
+<body style="background-color: lightgray">
+</body>
+

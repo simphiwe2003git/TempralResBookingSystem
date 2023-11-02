@@ -1,0 +1,25 @@
+﻿@model AspnetIdentityRoleBasedTutorial.Models.BookRoomModel.RoomBooking
+
+<h4>Edit Booking Status</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditStatus">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="BookingStatus" class="control-label"></label>
+                <select asp-for="BookingStatus" class="form-control">
+                    <option value="approved">Recieved</option>
+
+                    <option value="approved">Approved</option>
+                    <option value="pending">Pending</option>
+                    <option value="declined">Declined</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </form>
+    </div>
+</div>

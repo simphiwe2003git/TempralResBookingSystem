@@ -1,0 +1,76 @@
+﻿@model IEnumerable<AspnetIdentityRoleBasedTutorial.Models.ManageRooms.AddRooms>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>--Rooms--</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-info btn-sm">Create New</a>
+</p>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>RoomNumber</th>
+            <th>RoomType</th>
+            <th>BlockName</th>
+            <th>RoomStatus</th>
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AddRoomNumber</td>
+                <td>@item.AddRoomType</td>
+                <td>@item.AddBlockName</td>
+                <td>@item.AddRoomSatus</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success custom-btn-sm">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary custom-btn-sm">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger custom-btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    h2 {
+        text-align: center;
+        font-style: italic;
+        color: darkcyan
+    }
+    .custom-btn-sm {
+        padding: 3px 6px;
+        font-size: 12px;
+    }
+
+    table.table-bordered {
+        border-color: darkcyan; /* Add this line to change table border color */
+    }
+
+        table.table-bordered thead th {
+            border-bottom-color: darkcyan; /* Add this line to change table header bottom border color */
+        }
+
+        table.table-bordered tbody tr {
+            border-bottom-color: darkcyan; /* Add this line to change table body horizontal line color */
+        }
+
+        table.table-bordered th,
+        table.table-bordered td {
+            border-right-color: darkcyan; /* Add this line to change table vertical line color */
+        }
+
+            table.table-bordered th:first-child,
+            table.table-bordered td:first-child {
+                border-left-color: darkcyan; /* Add this line to change left border of the first column */
+            }
+</style>
+<body style="background-color: lightgray">
+</body>

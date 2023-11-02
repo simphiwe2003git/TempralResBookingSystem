@@ -1,0 +1,48 @@
+﻿<style>
+    .row {
+        display: flex;
+        justify-content: space-between; /* Add space between columns */
+    }
+
+    .column {
+        flex: 1;
+        margin: 10px; /* Add margin for spacing */
+        border-radius: 10px; /* Add rounded corners */
+        overflow: hidden; /* Hide overflow for rounded corners */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    }
+
+    img {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .button-like-link {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        background-color: #007bff; /* Button background color */
+        color: #fff; /* Button text color */
+        padding: 10px 20px; /* Button padding */
+        border: none; /* Remove button border */
+        border-radius: 5px; /* Button border radius */
+        text-decoration: none; /* Remove default link underline */
+    }
+</style>
+
+<div class="row">
+    <div class="column">
+        <img src="~/css/ue.jpg" alt="Uber Eats">
+        <a href="https://www.ubereats.com/za" class="button-like-link">
+            Visit Uber Eats
+        </a>
+    </div>
+    <div class="column">
+        <img src="~/css/pexels-rdne-stock-project-6519901.jpg" alt="Call 911">
+        <a href="https://saambulance.sa.gov.au/" class="button-like-link">Call 911</a>
+    </div>
+    <div class="column">
+        <img src="~/css/sa cops.jpg" alt="South African Police">
+        <a href="https://www.gov.za/about-government/contact-directory/departments/departments/south-african-police-service-saps" class="button-like-link">Cops</a>
+    </div>
+</div>

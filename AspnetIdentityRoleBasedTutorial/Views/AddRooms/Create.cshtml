@@ -1,0 +1,144 @@
+﻿@model AspnetIdentityRoleBasedTutorial.Models.ManageRooms.AddRooms
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Navbar style */
+        .navbar {
+            background-color: white;
+            padding: 10px 0;
+        }
+
+            .navbar a {
+                color: black;
+                text-decoration: none;
+                margin-right: 20px;
+            }
+
+        /* Footer style */
+        .footer {
+            background-color: darkcyan; /* Dark Cyan color */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Form style */
+        .my-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            width: 50%;
+        }
+
+            .my-form h3 {
+                text-align: center;
+                background-color: darkcyan; /* Dark Cyan color */
+                color: white;
+                padding: 10px 0;
+            }
+
+            .my-form .form-group {
+                margin-bottom: 15px;
+            }
+
+            .my-form label {
+                font-weight: bold;
+            }
+
+            .my-form select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid green;
+                border-radius: 3px;
+            }
+
+            .my-form .btn-primary {
+                background-color: #654321; /* Brown color */
+                border: none;
+                padding: 10px 20px;
+                color: white;
+                border-radius: 3px;
+                cursor: pointer;
+                display: block;
+                margin: auto;
+            }
+
+                .my-form .btn-primary:hover {
+                    background-color: #543d28;
+                }
+
+            .my-form .text-center {
+                text-align: center; /* Center the action link */
+            }
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="my-form">
+        <h3>Admin Create Rooms</h3>
+        <hr />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AddRoomNumber"></label>
+                <select asp-for="AddRoomNumber" asp-items="ViewBag.AddRoomNumber" class="form-control" required>
+                    <option value="Room1">Room 1</option>
+                    <option value="Room2">Room 2</option>
+                    <option value="Room 3">Room 3</option>
+                    <option value="Room1">Room 4</option>
+                    <option value="Room2">Room 5</option>
+                    <option value="Room 3">Room 6</option>
+                    <option value="" disabled selected>--choose--</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddRoomType"></label>
+                <select asp-for="AddRoomType" asp-items="ViewBag.AddRoomType" class="form-control" required>
+                    <option value="double">Double</option>
+                    <option value="single">Single</option>
+                    <option value="triple">Triple</option>
+                    <option value="" disabled selected>--choose--</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddBlockName"></label>
+                <select asp-for="AddBlockName" asp-items="ViewBag.AddBlockName" class="form-control" required>
+                    <option value="Block J">Block J</option>
+                    <option value="Block E">Block E</option>
+                    <option value="Block C">Block C</option>
+                    <option value="" disabled selected>--choose--</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddRoomSatus">AddRoomStatus</label>
+                <select asp-for="AddRoomSatus" asp-items="ViewBag.AddRoomSatus" class="form-control" required>
+                    <option value="Available">Available</option>
+                    <option value="Not Available">Not Available</option>
+                    <option value="" disabled selected>--choose--</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        <div class="text-center">
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+<body style="background-color: lightgray">
+</body>

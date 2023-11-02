@@ -1,0 +1,68 @@
+﻿@using AspnetIdentityRoleBasedTutorial.Data
+@model IEnumerable<ApplicationUser>
+
+<style>
+    h2 {
+        text-align: center;
+        font-style: italic;
+        color: darkcyan
+    }
+    .table thead {
+        border-bottom: 2px solid darkcyan; /* Dark cyan line below headings */
+    }
+
+        .table thead th {
+            color: darkcyan;
+            font-size: 18px; /* Adjust the font size as needed */
+            border-top: 2px solid darkcyan; /* Dark cyan top border of headers */
+        }
+
+    /* Dark cyan horizontal lines for all rows */
+    .table-bordered tbody tr {
+        border-bottom: 2px solid darkcyan; /* Dark cyan horizontal lines */
+    }
+
+    /* Dark cyan vertical lines */
+    .table-bordered th,
+    .table-bordered td {
+        border-right: 2px solid darkcyan; /* Dark cyan vertical lines */
+    }
+
+        /* Dark cyan left border of the first column */
+        .table-bordered th:first-child,
+        .table-bordered td:first-child {
+            border-left: 2px solid darkcyan; /* Dark cyan left border of the first column */
+        }
+</style>
+
+@{
+    ViewData["Title"] = "User List";
+}
+
+<h2>--Users--</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Email</td>
+                    <td>@user.Name</td>
+                    <td>
+                        <a asp-action="Delete" asp-route-email="@user.Email" class="btn btn-danger btn-md">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<body style="background-color: lightgray">
+</body>

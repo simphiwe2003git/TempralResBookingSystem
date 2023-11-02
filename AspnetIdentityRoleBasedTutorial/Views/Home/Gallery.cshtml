@@ -1,0 +1,48 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+       h2{
+            text-align:center;
+            font-style:italic;
+            color: darkcyan
+
+        }
+        div.scroll-container {
+            background-color: #333;
+            overflow: auto;
+            white-space: nowrap;
+            padding: 10px;
+        }
+
+            div.scroll-container img {
+                padding: 10px;
+            }
+    </style>
+</head>
+<body>
+        <h2>--Our rooms--</h2>
+
+
+    <div class="scroll-container">
+        <img src="~/css/Room C.jpg" alt="Cinque Terre" width="600" height="400">
+        <img src="~/css/rOOM  f.jpg" alt="Forest" width="600" height="400">
+        <img src="~/css/roomA.jpg" alt="Northern Lights" width="600" height="400">
+        <img src="~/css/rOOMB.jpg" alt="Mountains" width="600" height="400">
+        <img src="~/css/rOOMC.jpg" alt="Cinque Terre" width="600" height="400">
+        <img src="~/css/rOOM  f.jpg" alt="Forest" width="600" height="400">
+        <img src="~/css/roomA.jpg" alt="Northern Lights" width="600" height="400">
+        <img src="~/css/rOOMB.jpg" alt="Mountains" width="600" height="400">
+    </div>
+
+    <div class="text-center">
+        <a href="@Url.Action("Create", "RoomBookings")" class="btn btn-primary">Book Now</a>
+    </div>
+
+</body>
+</html>
+<body style="background-color: lightgray">
+</body>

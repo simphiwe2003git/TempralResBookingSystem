@@ -1,0 +1,50 @@
+﻿@model AspnetIdentityRoleBasedTutorial.Models.BookRoomModel.RoomBooking
+
+<div>
+    <h4>Booking Status</h4>
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.BookingStatus)
+        </dt>
+        <dd class="col-sm-9">
+            <span id="bookingStatus">@Model.BookingStatus</span>
+        </dd>
+    </dl>
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="container">
+        <label class="label">Update Status</label>
+        <select class="dropdown" id="newBookingStatus">
+            <option value="received">Received</option>
+            <option value="approved">Approved</option>
+            <option value="pending">Pending</option>
+            <option value="declined">Declined</option>
+        </select>
+        <button id="updateStatusButton">Update Status</button>
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        $("#updateStatusButton").on("click", function () {
+            var newStatus = $("#newBookingStatus").val();
+            var bookingId = @Model.Id; // Get the booking ID from the model
+
+            $.ajax({
+                type: "POST",
+                url: "/RoomBookings/EditStatus",
+                data: {
+                    Id: bookingId,
+                    BookingStatus: newStatus
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $("#bookingStatus").text(newStatus);
+                    }
+                }
+            });
+        });
+    });
+</script>

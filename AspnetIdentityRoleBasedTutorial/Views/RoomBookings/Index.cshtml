@@ -1,0 +1,129 @@
+﻿@model IEnumerable<AspnetIdentityRoleBasedTutorial.Models.BookRoomModel.RoomBooking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    h2 {
+        text-align: center;
+        font-style: italic;
+        color: darkcyan
+    }
+    .table thead {
+        border-bottom: 2px solid darkcyan; /* Dark cyan line below headings */
+    }
+
+        .table thead th {
+            color: darkcyan;
+            font-size: 18px; /* Adjust the font size as needed */
+            border-top: 2px solid darkcyan; /* Dark cyan top border of headers */
+        }
+
+    /* Dark cyan horizontal lines for all rows */
+    .table-bordered tbody tr {
+        border-bottom: 2px solid darkcyan; /* Dark cyan horizontal lines */
+    }
+
+    /* Dark cyan vertical lines */
+    .table-bordered th,
+    .table-bordered td {
+        border-right: 2px solid darkcyan; /* Dark cyan vertical lines */
+    }
+
+        /* Dark cyan left border of the first column */
+        .table-bordered th:first-child,
+        .table-bordered td:first-child {
+            border-left: 2px solid darkcyan; /* Dark cyan left border of the first column */
+        }
+
+    /* Style for action links as buttons */
+    .custom-btn-sm {
+        padding: 3px 6px;
+        font-size: 12px;
+    }
+</style>
+
+<h2>--Bookings--</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-info btn-sm">Create New</a>
+</p>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Province)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlockName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckInDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckOutDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Province)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BlockName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckInDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckOutDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success custom-btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary custom-btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger custom-btn-sm">Delete</a>
+                    <a asp-action="status" asp-route-id="@item.Id" class="btn btn-info custom-btn-sm">status</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<body style="background-color: lightgray">
+</body>
